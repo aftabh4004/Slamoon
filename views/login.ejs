@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Slamoon</title>
+        <link rel = "stylesheet" type="text/css" href="css/login.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <h2>Slamoon</h2>
+            </div>
+            <div class="login-form">
+                <form action="/login" method="POST">
+                    <input type="text" name="username" id="username" placeholder="username">
+                    <input type="password" name="password" id="password" placeholder="password">
+                    <button type="submit" id= "login-btn">Log In</button>
+                </form>
+                <div style="color: white">
+                    <% if (messages.error) { %>
+                        *<%= messages.error %>
+                    <% } %>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div id="quote">
+                <img src="images/logincartoon.png" alt="" id="logincartoon">
+                Writing good old days to be<br>nostalgic in future.
+            </div>
+            <div id="signup">
+                <% if(acknowledge) { %>
+                    <div style="color: green;">
+                        <%= message %>
+                    </div>
+                <% } else { %>
+                    <div style="color: red;">
+                        *<%= message %>
+                    </div>
+                <% } %>
+                <form action="/register" method="POST" >
+                    <input type="text" name="name" id="name" placeholder="Your good name" required><br>
+                    <input type="text" name="username" id="susername" placeholder="username" required><br>
+                    <input type="password" name="password" id="spassword" placeholder="password" required><br>
+                    <input type="password" name="cpassword" id="cpassword" placeholder="Confirm password" required><br>
+                    <input type="text" name="dob" id="dob" placeholder="Date of Birth" onfocus="this.type = 'date'" onfocusout="this.type = 'text'" required><br>
+                    <input type="submit" value="Sign Up" id="signup-btn"><br>
+                </form>
+            </div>
+            
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>

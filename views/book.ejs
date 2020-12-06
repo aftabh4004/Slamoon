@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>MyBook</title>
+        <link rel = "stylesheet" href="./../css/book.css">
+    </head>
+    <body>
+        <header>
+            <h1><%= bookholder_name %>'s Book</h1>
+        </header>
+        <main>
+            <div id="container">
+                <form action="/addToBook" method="POST">
+                    <label for="nickname">How can I call you?(Nick name)</label><br>
+                    <input type="text" name="nickname" id="nickname"><br>
+                    <label for="born">When Born?</label><br>
+                    <input type="text" name="born" id="born" onfocus="this.type = 'date'" onfocusout="this.type = 'text'"><br>
+                    <label for="gender">Hey male or female?</label><br>
+                    <input type="text" name="gender" id="gender"><br>
+                    <label for="email">Email please?</label><br>
+                    <input type="text" name="email" id="email"><br>
+                    <label for="p_no">May I have your phone number?</label><br>
+                    <input type="text" name="p_no" id="p_no"><br>
+                    <label for="address">Where I can find you? I mean your Address</label><br>
+                    <input type="text" name="address" id="address"><br>
+                    <label for="about_you">Something about yourself?</label><br>
+                    <input type="text" name="about_you" id="about_you"><br>
+                    <label for="about_me">What you think about me?</label><br>
+                    <input type="text" name="about_me" id="about_me"><br><br>
+                    <input type="submit" value="Post my words">
+                    <input type="hidden" name="profile_id" value="<%= bookholder_id%>">
+                    <input type="hidden" name="profile_name" value="<%= bookholder_name%>">
+                </form>
+            </div>
+        </main>
+        <footer>
+            <label>Logged in as&nbsp;<u id="id_of_user"><%= user_id%></u></label>
+            <label>Slamoon</label>
+            <label>Created by Aftab Hussain</label>    
+        </footer>
+    </body>
+</html>

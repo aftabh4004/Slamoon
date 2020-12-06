@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <title><%= user%></title>
+        <link rel = "stylesheet" type="text/css" href="./../css/profile.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header id="header">
+            <div class="logo" id="logo">
+                <h2>Slamoon</h2>
+            </div>
+            <div class="search">
+                <form >
+                    <input type="text" name="search" id="search_ip" placeholder="Search">
+                    <button type="button" id= "search_btn" onclick="showSearchResult();"><i class="fa fa-search"></i></button>
+                </form>
+                
+            </div>
+            <div class="logout">
+                <form action="/logout?_method=DELETE" method="POST">
+                    <button type="submit" id="logout_btn">
+                        <i class="fa fa-sign-out"></i>
+                        Log&nbsp;Out
+                    </button>
+                </form>    
+            </div>
+            <div class="edit-profile">
+                <form action="/edit-profile" method="GET">
+                    <button type="submit" id="edit-profile-btn">
+                        <i class="fa fa-user"></i>
+                    </button>
+                </form>    
+            </div>
+        </header>
+        <main>
+            <div class="event">
+                <div class="event-notification-label">Upcoming Birthday's</div>
+                <% if (id == profile_id) { %>
+                    <% birthdays.forEach(element => { %>
+                        <div class="card-notification" id="<%= element.username %>">
+                            <img src="http://localhost:5000/image/<%= element.username %>.jpg" alt="" id="card-img">
+                            <div style="margin-left: 5px">
+                                <label id="card-label"><%= element.name%>'s</label><br>
+                                <label id="card-id-lable${counter}">Birthday's on <%= element.born %></label>
+                            </div>
+                        </div>
+                    <% })%>
+                <% } %>
+            </div>
+            <div class="feed" id="feed-container">
+                <img src="http://localhost:5000/image/<%= profile_id %>.jpg" alt="<%= profile_id %>" id="profile">
+                <div style=" font-size: xx-large;" id="profile_name"><%= profile_name%><hr></div>
+                <% if (id != profile_id) { %>
+                    <button id="invite" onclick="inviteTo(this);">Invite</button>&nbsp;
+                    <form action="/write" method="POST">
+                        <button id="invite" name="profile_id" value="<%= profile_id %>">Write in my book</button>
+                        <input type="hidden" name="profile_name" value="<%= profile_name%>">
+                    </form>
+                <% } %>
+                <div style="width: 100%;">
+                    <% if (id != profile_id) { %>
+                        <br>
+                        <h3>About me<h3>
+                        <br><hr>
+                        <br>
+                        <p>Veniam id amet enim reprehenderit excepteur ex. Excepteur mollit aute amet eiusmod occaecat do qui irure cupidatat officia ea. Commodo do officia amet duis eu cupidatat. Sunt ad ipsum elit labore proident laborum.
+
+Pariatur id aute eiusmod eu proident. Tempor veniam Lorem nostrud sit pariatur elit. Exercitation qui excepteur occaecat veniam commodo. Lorem ullamco duis mollit sint do reprehenderit. Voluptate elit irure sit mollit consectetur aliquip ex occaecat exercitation adipisicing laborum velit amet culpa.
+
+Aliqua aliqua adipisicing Lorem ea laborum magna sunt ad do ad irure voluptate. Reprehenderit officia esse laboris ut laborum exercitation amet magna dolore nulla. Dolor enim voluptate quis commodo anim id aliqua sint fugiat ea elit. Quis labore nisi do nulla deserunt deserunt consectetur et in laborum fugiat reprehenderit sunt quis. Veniam quis elit consequat incididunt ex veniam. Labore ipsum aute aliquip ullamco adipisicing consequat laboris ea nisi.</p>
+                    <% } else { %>
+                        <br>
+                        <h3>My Book<h3>
+                        <br><hr>
+                        <% book.forEach(element => { %>
+                            <div class="card-book">
+                                <img src="http://localhost:5000/image/<%= element.username %>.jpg" alt="" id="book-img">
+                                <h2><%= element.name %></h2><br>
+                                <label>You may call me</label>
+                                <p><%= element.nickname %></p><br>
+                                <label>Steped down on</label>
+                                <p><%= element.born %></p><br>
+                                <label>I'm </label>
+                                <p><%= element.gender %></p><br>
+                                <label>Mail me at</label>
+                                <p><%= element.email %></p><br>
+                                <label>Or call me at</label>
+                                <p><%= element.p_no %></p><br>
+                                <label>Or just ring my door bell </label>
+                                <p><%= element.address %></p><br>
+                                <label>You can remember me by</label>
+                                <p><%= element.about_you %></p><br>
+                                <label>Me for you</label>
+                                <p><%= element.about_me %></p><br>
+                            </div>
+                        <% }) %>
+                    <% } %>
+
+
+                    
+
+                </div>
+            </div>
+            <div class="notification">
+                <div class="event-notification-label">Notifications</div>
+                <% if (id == profile_id) { %>
+                    <% notification.forEach(element => { %>
+                        <div class="card-notification" id="<%= element.username %>">
+                            <img src="http://localhost:5000/image/<%= element.username %>.jpg" alt="" id="card-img">
+                            <div style="margin-left: 5px">
+                                <label id="card-label"><%= element.name%></label><br>
+                                <label id="card-id-lable${counter}">invited you</label>
+                            </div>
+                        </div>
+                    <% })%>
+                <% } %>
+                
+                
+            </div>
+            <script src="./../script/profile.js"></script>
+        </main>
+        <footer>
+            <label>Logged in as&nbsp;<u id="id_of_user"><%= id%></u></label>
+            <label>Slamoon</label>
+            <label>Created by Aftab Hussain</label>    
+        </footer>
+    </body>
+</html>
