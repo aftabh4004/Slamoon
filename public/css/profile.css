@@ -116,7 +116,7 @@ main{
     width: 20%;
 }
 
-.card, .card-notification{
+.card, .card-notification, .card-birthday{
     display: flex;
     justify-content: left;
     align-items: center;
@@ -161,6 +161,10 @@ main{
 #card-label{
     font-weight: bolder;
     font-size: x-large;
+}
+#card-label-bd{
+    font-weight: bolder;
+    font-size: larger;
 }
 
 label[id|=card-id-label]{
