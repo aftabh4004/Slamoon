@@ -28,12 +28,12 @@ Both project should run in parallel in order to run the website smoothly.
 
 **Main project on localhost:9000**
 
-![ss main project]()
+![ss main project](ss/mainproject.png)
 
 
 **Upload project on localhost:9000**
 
-![ss upload project]()
+![ss upload project](ss/uploadproject.png)
 
 
 ## Scope of improvment
