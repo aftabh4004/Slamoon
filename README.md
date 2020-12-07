@@ -31,7 +31,7 @@ Both project should run in parallel in order to run the website smoothly.
 ![ss main project](ss/mainproject.png)
 
 
-**Upload project on localhost:9000**
+**Upload project on localhost:5000**
 
 ![ss upload project](ss/uploadproject.png)
 
