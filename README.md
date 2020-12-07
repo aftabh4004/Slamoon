@@ -44,4 +44,7 @@ Both project should run in parallel in order to run the website smoothly.
   * Deletion of attended notification
   * UI/UX
   * Implementing own module for MongoDB image upload.
-
+  
+  
+  **typical profile**
+![profile](ss/typicalprofile.png)
